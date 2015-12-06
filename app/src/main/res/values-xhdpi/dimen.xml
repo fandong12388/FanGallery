@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 照片裁剪界面-->
+    <!-- 裁剪照片的高度，不包括标题的高度和阴影的高度-->
+    <dimen name="crop_image_height">360dp</dimen>
+    <!-- 裁剪照片的高度，不包括标题的高度 -->
+    <dimen name="crop_image_below_height">400dp</dimen>
+    <!-- 裁剪照片的整体高度，包括照片、标题和阴影的高度-->
+    <dimen name="crop_image_header_height">446dp</dimen>
+    <!-- 阴影的高度-->
+    <dimen name="crop_image_shadow_height">40dp</dimen>
+    <!-- 标题高度 -->
+    <dimen name="crop_image_title_height">46dp</dimen>
+    <!-- 下面菜单栏的高度 -->
+    <dimen name="crop_image_operation_height">38dp</dimen>
+    <dimen name="gallery_pop_item_height">46dp</dimen>
+    <dimen name="gallery_pop_item_name">18sp</dimen>
+    <dimen name="gallery_first_item_height">408dp</dimen>
+</resources>

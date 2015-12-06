@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF242424"
+    android:clipChildren="false"
+    android:orientation="vertical">
+
+    <fans.com.mygallery.ScrollRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff3a3a3a" />
+
+    <fans.com.mygallery.ScrollLinearLayout
+        android:id="@+id/scroll_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/crop_image_header_height"
+        android:orientation="vertical">
+
+        <fans.com.mygallery.ImageCropTitleBar
+            android:id="@+id/image_crop_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/crop_image_title_height"
+            android:background="?attr/colorPrimary" />
+
+
+        <fans.com.mygallery.ImageCropView
+            android:id="@+id/image_crop_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </fans.com.mygallery.ScrollLinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/crop_image_below_height"
+    android:clipChildren="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/crop_image_shadow"
+        android:background="@android:color/white">
+
+        <fans.com.mygallery.TouchImageView
+            android:id="@+id/crop_touch_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:scaleType="matrix" />
+
+
+        <fans.com.mygallery.CropMask
+            android:id="@+id/crop_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/crop_image_operation_height"
+            android:layout_alignParentBottom="true"
+            android:background="#991f1f1f"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/image_crop_attach"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/crop_attach_full" />
+
+            <ImageView
+                android:id="@+id/image_crop_ratio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/crop_4_3" />
+
+            <ImageView
+                android:id="@+id/image_crop_rotate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/crop_rotate" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/crop_image_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/crop_image_shadow_height"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_rect_shadow" />
+
+</RelativeLayout>
