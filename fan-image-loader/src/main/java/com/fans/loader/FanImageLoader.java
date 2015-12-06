@@ -63,7 +63,6 @@ import java.util.Iterator;
  * @author fandong
  */
 public class FanImageLoader {
-    private static final String SUFFIX = "?imageView2/1/w/%d/h/%d";
     public static final int DISPLAY_DEFAULT = 1;
     public static final int DISPLAY_FADE_IN = 2;
     public static final int DISPLAY_ROUND = 3;

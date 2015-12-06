@@ -7,30 +7,30 @@
     android:clipChildren="false"
     android:orientation="vertical">
 
-    <fans.com.mygallery.ScrollRecyclerView
+    <com.fan.fangallery.ScrollRecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ff3a3a3a" />
 
-    <fans.com.mygallery.ScrollLinearLayout
+    <com.fan.fangallery.ScrollLinearLayout
         android:id="@+id/scroll_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/crop_image_header_height"
         android:orientation="vertical">
 
-        <fans.com.mygallery.ImageCropTitleBar
+        <com.fan.fangallery.ImageCropTitleBar
             android:id="@+id/image_crop_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/crop_image_title_height"
             android:background="?attr/colorPrimary" />
 
 
-        <fans.com.mygallery.ImageCropView
+        <com.fan.fangallery.ImageCropView
             android:id="@+id/image_crop_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </fans.com.mygallery.ScrollLinearLayout>
+    </com.fan.fangallery.ScrollLinearLayout>
 
 </FrameLayout>

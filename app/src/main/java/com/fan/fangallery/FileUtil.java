@@ -44,7 +44,7 @@ public class FileUtil {
     public static final int DIR_TYPE_COPY_DB = 0x09;
     /* 默认最小需要的空间*/
     public static final long MIN_SPACE = 10 * 1024 * 1024;
-    public static final String DISK_STORAGE_CACHE = "circle";
+    public static final String DISK_STORAGE_CACHE = "fan_gallery";
 
     static {
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
@@ -66,7 +66,7 @@ public class FileUtil {
         }
     }
 
-    private static String DIR_HOME = EXTERNAL_STORAGE + "/circle";
+    private static String DIR_HOME = EXTERNAL_STORAGE + "/fan_gallery";
     /*存放copy过来的db*/
     private static String DIR_COPY_DB = DIR_HOME + "/db";
     /* 该文件用来在图库中屏蔽本应用的图片.*/
@@ -77,7 +77,7 @@ public class FileUtil {
     private static String DIR_APK = DIR_HOME + "/apk";
     private static String DIR_DOWNLOAD = DIR_HOME + "/download";
     private static String DIR_TEMP = DIR_HOME + "/temp";
-    private static String APK_NAME = "circle_update.apk";
+    private static String APK_NAME = "update.apk";
 
 
     /**

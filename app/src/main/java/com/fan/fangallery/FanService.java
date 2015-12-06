@@ -13,7 +13,7 @@ import com.fans.loader.internal.utils.L;
 
 /**
  * time: 15/12/6
- * description:
+ * description:pic进程的启动入口
  *
  * @author fandong
  */
@@ -65,9 +65,9 @@ public class FanService extends Service {
         super.onCreate();
         //1.扫描本地图片到内存当中
         LocalPhotoManager.getInstance().initialize();
-        //3.初始化ImageLoader
+        //2.初始化ImageLoader
         FanImageLoader.init(getApplicationContext(), FileUtil.getPathByType(FileUtil.DIR_TYPE_CACHE));
-        //5.初始化Pinguo-image-loader当中的日志系统
+        //3.初始化Pinguo-image-loader当中的日志系统
         L.writeDebugLogs(BuildConfig.DEBUG);
     }
 

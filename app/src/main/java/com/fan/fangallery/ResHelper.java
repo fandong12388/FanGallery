@@ -5,7 +5,7 @@ import android.support.annotation.StringRes;
 
 import java.lang.reflect.Field;
 
-import static fans.com.mygallery.GalleryApplication.gContext;
+import static com.fan.fangallery.GalleryApplication.gContext;
 
 /**
  * time: 15/6/19
@@ -29,14 +29,6 @@ public class ResHelper {
 
     public static int getScreenHeight() {
         return gContext.getResources().getDisplayMetrics().heightPixels;
-    }
-
-    /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-     */
-    public static int dip2px(float dpValue) {
-        final float scale = gContext.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
     }
 
     /**

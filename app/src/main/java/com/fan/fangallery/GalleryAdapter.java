@@ -33,6 +33,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     private List<Integer> mPhotos = new ArrayList<>();
     /*注意：mItemSize的值不能随意修改，在LocalPhotoManager当中会用到*/
     private int mItemSize;
+    private int mShowSize;
     private int mSelectedPosition = 2;
 
     private OnRecyclerItemClickListener mOnRecyclerItemClickListener;
@@ -41,6 +42,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         this.mContext = context;
         this.mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mItemSize = (int) (mContext.getResources().getDisplayMetrics().widthPixels / 4.f + 0.5f - 3.f);
+        this.mShowSize = (int) (mItemSize / 2.f + 0.5f);
         initAdapter();
     }
 
@@ -126,7 +128,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
             FanImageLoader.create(url)
                     .setDisplayType(FanImageLoader.DISPLAY_FADE_IN)
                     .setFadeInTime(800)
-                    .setShowSize(mItemSize, mItemSize)
+                    .setShowSize(mShowSize, mShowSize)
                     .setDefaultDrawable(new ColorDrawable(0x00000000))
                     .into(holder.mImageView);
             holder.mImageView.setOnClickListener(v -> {

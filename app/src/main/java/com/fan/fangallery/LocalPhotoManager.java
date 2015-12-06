@@ -4,7 +4,6 @@ import android.content.ContentResolver;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.fans.loader.core.util.NameGeneratorUtil;
 import com.fans.loader.internal.utils.BitmapUtils;
@@ -39,7 +38,7 @@ public class LocalPhotoManager {
     private TreeMap<Integer, String> mLocalPhotos;
     /*封装了本地所有相册的路径*/
     private List<Gallery> mLocalGallery;
-    /*在sd卡上面缓存的尺寸大小*/
+    /*在sd卡上面缓存的尺寸大小(这里的尺寸大小应该与GalleryAdapter里面FanImageLoader.setShowSize一致*/
     private int mItemSize;
 
     private ConcurrentLinkedQueue<Integer> mQueue;
@@ -51,7 +50,8 @@ public class LocalPhotoManager {
     private LocalPhotoManager() {
         this.mLocalGallery = new ArrayList<>();
         this.mLocalPhotos = new TreeMap<>((lhs, rhs) -> rhs - lhs);
-        this.mItemSize = (int) (ResHelper.getScreenWidth() / 4.f + 0.5f - 3.f);
+        int size = (int) (ResHelper.getScreenWidth() / 4.f + 0.5f - 3.f);
+        this.mItemSize = (int) (size / 2.f + 0.5f);
         this.mQueue = new ConcurrentLinkedQueue<Integer>();
     }
 
@@ -135,22 +135,32 @@ public class LocalPhotoManager {
         this.mLocalPhotos.clear();
         this.mLocalGallery.clear();
         //1.异步扫描所有的缩略图
-        TDSystemGallery.asyncThumbnails()
-                .subscribe(entry -> {
-                    mLocalPhotos.put(entry.getKey(), entry.getValue());
-                    if (TextUtils.isEmpty(entry.getValue())) {
-                        save(entry.getKey());
-                    }
-                }, e-> Log.e("test",e.getMessage()));
+        TDSystemGallery.asyncThumbnails(new Callback<Integer, String>() {
+            @Override
+            public void onLoad(Map.Entry<Integer, String> entry) {
+                mLocalPhotos.put(entry.getKey(), entry.getValue());
+                if (TextUtils.isEmpty(entry.getValue())) {
+                    save(entry.getKey());
+                }
+            }
+        });
         //2.扫描所有的相册
-        TDSystemGallery.asyncFindGallery()
-                .subscribe(this::onFindGallery, e-> Log.e("test",e.getMessage()));
+        TDSystemGallery.asyncFindGallery(this::onFindGallery);
     }
+
     public static void destroy() {
         if (null != gInstance) {
             gInstance.mIsDestroy = true;
             gInstance = null;
         }
+    }
+
+    public static interface Callback<K, V> {
+        void onLoad(Map.Entry<K, V> picture);
+    }
+
+    public static interface GalleryCallback {
+        void onLoad(Gallery gallery);
     }
 
     /**

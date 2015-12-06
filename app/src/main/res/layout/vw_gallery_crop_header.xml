@@ -10,7 +10,7 @@
         android:layout_above="@+id/crop_image_shadow"
         android:background="@android:color/white">
 
-        <fans.com.mygallery.TouchImageView
+        <com.fan.fangallery.TouchImageView
             android:id="@+id/crop_touch_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -18,7 +18,7 @@
             android:scaleType="matrix" />
 
 
-        <fans.com.mygallery.CropMask
+        <com.fan.fangallery.CropMask
             android:id="@+id/crop_mask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
